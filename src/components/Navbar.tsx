@@ -8,7 +8,7 @@ const links = [
   { href: "#sandbox", label: "Programs" },
   { href: "#education", label: "Education" },
   { href: "#products", label: "Products" },
-  { href: "https://www.thevipgroup.eu/#careers", label: "Career" },
+  { href: "#careers", label: "Career" },
   { href: "#ambassador", label: "Ambassador" },
   { href: "#partners", label: "Partner" },
 ];
@@ -64,26 +64,40 @@ export function Navbar() {
         </a>
 
         <nav className="hidden md:flex items-center gap-1">
-          {links.map(l => (
-            <a
-              key={l.href} href={l.href}
-              onClick={() => setActive(l.href)}
-              target={l.href.startsWith("http") ? "_blank" : undefined}
-              rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                active === l.href ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
-              }`}
-            >
-              {l.label}
-              {active === l.href && (
-                <motion.span
-                   layoutId="nav-pill"
-                   className="absolute bottom-0 left-4 right-4 h-0.5 bg-blue-600"
-                   transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                />
-              )}
-            </a>
-          ))}
+          {links.map(l => {
+            if (l.label === "Career") {
+              return (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setActive(l.href)}
+                  className="ml-2 border border-slate-900 hover:border-slate-950 rounded-lg px-4.5 py-1.5 text-sm font-semibold text-slate-900 hover:text-black hover:bg-slate-50 transition-all duration-300 active:scale-95 cursor-pointer whitespace-nowrap"
+                >
+                  {l.label}
+                </a>
+              );
+            }
+            return (
+              <a
+                key={l.href} href={l.href}
+                onClick={() => setActive(l.href)}
+                target={l.href.startsWith("http") ? "_blank" : undefined}
+                rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                  active === l.href ? "text-blue-600" : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                {l.label}
+                {active === l.href && (
+                  <motion.span
+                     layoutId="nav-pill"
+                     className="absolute bottom-0 left-4 right-4 h-0.5 bg-blue-600"
+                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+              </a>
+            );
+          })}
         </nav>
 
         <button className="md:hidden p-2 text-slate-700 hover:text-slate-900" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -97,18 +111,35 @@ export function Navbar() {
             initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
             className="md:hidden mt-2 bg-white/95 backdrop-blur-xl border border-gray-200 shadow-lg rounded-2xl p-4 flex flex-col gap-1"
           >
-            {links.map(l => (
-              <a key={l.href} href={l.href}
-                 target={l.href.startsWith("http") ? "_blank" : undefined}
-                 rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                 onClick={() => {
-                   setActive(l.href);
-                   setOpen(false);
-                 }}
-                 className="px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
-                {l.label}
-              </a>
-            ))}
+            {links.map(l => {
+              if (l.label === "Career") {
+                return (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={() => {
+                      setActive(l.href);
+                      setOpen(false);
+                    }}
+                    className="mx-4 my-2 border border-slate-900 rounded-lg px-4 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-50 text-center transition-colors cursor-pointer"
+                  >
+                    {l.label}
+                  </a>
+                );
+              }
+              return (
+                <a key={l.href} href={l.href}
+                   target={l.href.startsWith("http") ? "_blank" : undefined}
+                   rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                   onClick={() => {
+                     setActive(l.href);
+                     setOpen(false);
+                   }}
+                   className="px-4 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-lg transition-colors">
+                  {l.label}
+                </a>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

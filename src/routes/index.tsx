@@ -10,6 +10,7 @@ import { Sandbox } from "@/components/sections/Sandbox";
 import { GlobePartners } from "@/components/sections/GlobePartners";
 import { NewHero } from "@/components/sections/NewHero";
 import { Products } from "@/components/sections/Products";
+import { Careers } from "@/components/sections/Careers";
 import { Ambassador } from "@/components/sections/Ambassador";
 import { CorporatePartner } from "@/components/sections/CorporatePartner";
 
@@ -47,6 +48,7 @@ function Index() {
         <GlobePartners />
         <NewHero />
         <Products />
+        <Careers />
         <Ambassador />
         <CorporatePartner />
       </main>
