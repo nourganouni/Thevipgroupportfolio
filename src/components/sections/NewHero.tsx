@@ -72,12 +72,6 @@ export function NewHero() {
                 Register
               </button>
             </div>
-
-            <div className="mt-8 sm:mt-12 flex flex-wrap gap-6 sm:gap-10 justify-center lg:justify-start">
-              <Stat number="1000+" label={["Courses to", "choose from"]} color="text-amber-500" />
-              <Stat number="5000+" label={["Students", "Trained"]} color="text-blue-600" />
-              <Stat number="200+" label={["Professional", "Trainers"]} color="text-orange-500" />
-            </div>
           </div>
 
           {/* Right */}
@@ -128,23 +122,4 @@ export function NewHero() {
   );
 }
 
-function Stat({
-  number,
-  label,
-  color,
-}: {
-  number: string;
-  label: string[];
-  color: string;
-}) {
-  return (
-    <div>
-      <div className={`text-3xl font-bold ${color}`}>{number}</div>
-      <div className="mt-2 text-sm font-semibold text-slate-700 leading-tight">
-        {label[0]}
-        <br />
-        {label[1]}
-      </div>
-    </div>
-  );
-}
+
