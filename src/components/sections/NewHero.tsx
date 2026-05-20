@@ -68,9 +68,14 @@ export function NewHero() {
             </p>
 
             <div className="mt-6 sm:mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center lg:justify-start">
-              <button className="px-6 sm:px-7 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium shadow-lg shadow-slate-200 transition-all hover:scale-105 duration-300">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSeZeXQsJcVYdGgejCuPOwm7hur0WdvBHlZjXEqWwCX5YkuQow/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 sm:px-7 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium shadow-lg shadow-slate-200 transition-all hover:scale-105 duration-300 inline-block text-center cursor-pointer"
+              >
                 Register
-              </button>
+              </a>
             </div>
           </div>
 
